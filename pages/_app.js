@@ -5,6 +5,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../lib/theme';
 import '../styles/globals.css';
+import 'leaflet/dist/leaflet.css';
 
 export default function MyApp(props) {
 	const { Component, pageProps } = props;
