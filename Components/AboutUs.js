@@ -32,7 +32,7 @@ export default function Home() {
 
 	return (
 		<React.Fragment>
-			<Container className={classes.cardGrid} maxWidth="md">
+			<Container className={classes.cardGrid} maxWidth="md" id="aboutUs">
 				<Grid
 					container
 					justify="space-between"

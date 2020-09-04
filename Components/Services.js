@@ -15,7 +15,7 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const Services = () => {
 	const classes = useStyles();
 	return (
-		<Container className={classes.cardGrid} maxWidth="md">
+		<Container className={classes.cardGrid} maxWidth="md" id="prices">
 			<Grid container spacing={4}>
 				{cards.map((card) => (
 					<Grid item key={card} xs={12} sm={6} md={4}>

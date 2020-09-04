@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: theme.palette.grey[800],
 		color: theme.palette.common.white,
 		marginBottom: theme.spacing(4),
-		backgroundImage: 'url(https://source.unsplash.com/random)',
 		backgroundSize: 'cover',
 		backgroundRepeat: 'no-repeat',
 		backgroundPosition: 'center',
@@ -37,7 +36,7 @@ const mainFeaturedPost = {
 	title: 'Title of a longer featured blog post',
 	description:
 		"Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-	image: 'https://source.unsplash.com/random',
+	image: '/images/Logo.jpg',
 	imgText: 'main image description',
 	linkText: 'Continue reading…',
 };
@@ -46,8 +45,10 @@ const Jumbotron = () => {
 	const classes = useStyles();
 	const post = mainFeaturedPost;
 	return (
-		<Paper className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${post.image})` }}>
-			{<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
+		<Paper
+			className={classes.mainFeaturedPost}
+			style={{ backgroundImage: `url(${post.image})`, backgroundSize: '100% 100%' }}>
+			{/* {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />} */}
 			<div className={classes.overlay} />
 			<Grid container>
 				<Grid item md={6}>

@@ -16,7 +16,15 @@ import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import clsx from 'clsx';
 import CloseIcon from '@material-ui/icons/Close';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import NextLink from 'next/link';
 import Footer from './Components/Footer';
+import Form from './Components/Form';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -71,6 +79,7 @@ function Layout({ children }) {
 		setOpen(!open);
 	}
 	const theme = useTheme();
+
 	const handleDrawerOpen = () => {
 		setOpen(true);
 	};
@@ -78,6 +87,18 @@ function Layout({ children }) {
 	const handleDrawerClose = () => {
 		setOpen(false);
 	};
+
+	const [openForm, setOpenForm] = React.useState(false);
+
+	const handleFormClose = () => {
+		setOpenForm(false);
+	};
+
+	const handleFormOpen = () => {
+		setOpenForm(true);
+	};
+
+	const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
 	return (
 		<div className={classes.root}>
@@ -145,8 +166,11 @@ function Layout({ children }) {
 					<Hidden mdDown>
 						<Typography variant="h4">
 							<IconButton edge="end" className={classes.menuButton} aria-label="menu">
-								<TelegramIcon className={classes.telegram} />
+								<NextLink href="https://telegram.im/@324234324">
+									<TelegramIcon className={classes.telegram} />
+								</NextLink>
 							</IconButton>
+
 							<IconButton edge="start" className={classes.menuButton} aria-label="menu">
 								<WhatsAppIcon />
 							</IconButton>
@@ -156,10 +180,24 @@ function Layout({ children }) {
 						</Typography>
 					</Hidden>
 					<Hidden xsDown>
-						<Button>Оставить заявку</Button>
+						<Button onClick={handleFormOpen}>Оставить заявку</Button>
 					</Hidden>
 				</Toolbar>
 			</AppBar>
+			<Dialog
+				fullScreen={true}
+				open={openForm}
+				onClose={handleFormClose}
+				aria-labelledby="responsive-dialog-title">
+				<DialogContent>
+					<DialogActions>
+						<Button onClick={handleFormClose} color="primary" autoFocus>
+							Закрыть
+						</Button>
+					</DialogActions>
+					<Form />
+				</DialogContent>
+			</Dialog>
 			{children}
 			<Footer />
 		</div>
