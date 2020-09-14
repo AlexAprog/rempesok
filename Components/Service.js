@@ -13,30 +13,26 @@ const useStyles = makeStyles((theme) => ({
 		flexDirection: 'column',
 	},
 	cardMedia: {
-		paddingTop: '56.25%', // 16:9
+		height: 140, // 16:9
 	},
 	cardContent: {
 		flexGrow: 1,
+		padding: 0,
 	},
 }));
 
-const Service = () => {
+const Service = ({ card }) => {
 	const classes = useStyles();
 	return (
 		<Card className={classes.card}>
-			<CardMedia
-				className={classes.cardMedia}
-				image="https://source.unsplash.com/random"
-				title="Image title"
-			/>
+			<CardMedia className={classes.cardMedia} image={card.src} title={card.name} />
 			<CardContent className={classes.cardContent}>
-				<Typography gutterBottom variant="h5" component="h2">
-					Кузов
+				<Typography align="center" gutterBottom variant="h5" component="h2">
+					{card.name}
 				</Typography>
-				<Typography>Описание работ .......</Typography>
 			</CardContent>
-			<CardContent>
-				<Typography align="center" variant="h4">
+			<CardContent className={classes.cardContent}>
+				<Typography align="center" variant="subtitle1">
 					от 2000 т.р
 				</Typography>
 			</CardContent>

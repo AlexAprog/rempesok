@@ -33,12 +33,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const mainFeaturedPost = {
-	title: 'Title of a longer featured blog post',
+	title: 'Мастерская песка и красок',
 	description:
-		"Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+		'Мастерская профессиональной пескоструйной обработки и окраски в СПб и Ленинградской обл.',
 	image: '/images/Logo.jpg',
 	imgText: 'main image description',
-	linkText: 'Continue reading…',
 };
 
 const Jumbotron = () => {
@@ -59,9 +58,6 @@ const Jumbotron = () => {
 						<Typography variant="h5" color="inherit" paragraph>
 							{post.description}
 						</Typography>
-						<Link variant="subtitle1" href="#">
-							{post.linkText}
-						</Link>
 					</div>
 				</Grid>
 			</Grid>

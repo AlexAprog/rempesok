@@ -52,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
 		margin: '20px',
 		display: 'flex',
 		justifyContent: 'center',
+		fontFamily: 'Oswald, sans-serif',
 	},
 	telegram: {
 		'&:hover': {
@@ -112,17 +113,17 @@ function Layout({ children }) {
 						<div className={classes.drawerHeader}>
 							<CloseIcon onClick={handleDrawerClose}></CloseIcon>
 						</div>
-						<MenuItem className={classes.menuItem} href="#contacts" onClick={handleDrawerClose}>
-							<Link href="#contacts">О нас</Link>
+						<MenuItem className={classes.menuItem} onClick={handleDrawerClose}>
+							<Link href="#aboutUs">О НАС</Link>
+						</MenuItem>
+						<MenuItem className={classes.menuItem} onClick={handleDrawerClose}>
+							<Link href="#prices">ЦЕНЫ</Link>
 						</MenuItem>
 						<MenuItem className={classes.menuItem} href="#contacts" onClick={handleDrawerClose}>
-							<Link href="#contacts">Цены</Link>
+							<Link href="#contacts">КОНТАКТЫ</Link>
 						</MenuItem>
 						<MenuItem className={classes.menuItem} href="#contacts" onClick={handleDrawerClose}>
-							<Link href="#contacts">Контакты</Link>
-						</MenuItem>
-						<MenuItem className={classes.menuItem} href="#contacts" onClick={handleDrawerClose}>
-							<Link href="#contacts">Связаться</Link>
+							<Link href="#call">СВЯЗАТЬСЯ</Link>
 						</MenuItem>
 					</Drawer>
 					<Hidden mdUp>
@@ -147,16 +148,16 @@ function Layout({ children }) {
 								TypographyClasses={{}}
 								className={classes.menuItem}
 								color="textPrimary">
-								О нас
+								О НАС
 							</Link>
 							<Link href="#prices" className={classes.menuItem} color="textPrimary">
-								Цены
+								ЦЕНЫ
 							</Link>
 							<Link href="#contacts" className={classes.menuItem} color="textPrimary">
-								Контакты
+								КОНТАКТЫ
 							</Link>
 							<Link href="#call" className={classes.menuItem} color="textPrimary">
-								Связаться
+								СВЯЗАТЬСЯ
 							</Link>
 						</Typography>
 					</Hidden>
