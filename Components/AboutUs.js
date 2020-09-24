@@ -74,7 +74,7 @@ export default function Home() {
 											align="left"
 											color="textPrimary"
 											className="section-header__subtitle"
-											variant="body1">
+											variant="subtitle1">
 											Наша компания относительно молодая на рынке пескоструйных работ, НО нам
 											доверяют и на это есть причины:
 											<Timeline align="alternate">

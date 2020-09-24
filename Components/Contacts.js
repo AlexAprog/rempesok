@@ -10,6 +10,7 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Map from './Map';
 import { mapData } from '../data';
+
 const useStyles = makeStyles((theme) => ({
 	hero: {
 		position: 'relative',
@@ -23,9 +24,9 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	LeftSide: {
-		padding: theme.spacing(6, 2),
+		padding: theme.spacing(2, 2),
 		[theme.breakpoints.up('sm')]: {
-			padding: theme.spacing(12, 2),
+			padding: theme.spacing(2, 2),
 		},
 		width: '100%',
 		[theme.breakpoints.down('sm')]: {
@@ -51,9 +52,7 @@ const useStyles = makeStyles((theme) => ({
 		overflow: 'hidden',
 		verticalAlign: 'middle',
 		zIndex: 3,
-		[theme.breakpoints.down('sm')]: {
-			display: 'none',
-		},
+		display: 'none',
 	},
 	shape: {
 		transform: 'scale(2)',
@@ -90,7 +89,7 @@ const Contacts = () => {
 					<div>
 						<Grid container spacing={2} className={clsx('section-header')}>
 							<Grid item xs={12} className="section-header__title-wrapper">
-								<Typography align="center" color="textPrimary">
+								<Typography align="center" variant="h5" color="textPrimary">
 									Контакты
 								</Typography>
 							</Grid>
@@ -106,8 +105,17 @@ const Contacts = () => {
 								</ListItemAvatar>
 								<ListItemText
 									className={classes.listItemText}
-									primary="Phone"
-									secondary="+39 659-657-0133"
+									primary="Телефон"
+									secondary={
+										<React.Fragment>
+											<Typography component="p" variant="body2" color="textPrimary">
+												+7 911-994-91-23
+											</Typography>
+											<Typography component="p" variant="body2" color="textPrimary">
+												+7 981-895-23-98
+											</Typography>
+										</React.Fragment>
+									}
 									primaryTypographyProps={{
 										className: classes.title,
 										variant: 'subtitle1',
@@ -130,15 +138,17 @@ const Contacts = () => {
 								<ListItemText
 									className={classes.listItemText}
 									primary="Email"
-									secondary="hi@maccarianagency.com"
+									secondary={
+										<React.Fragment>
+											<Typography component="p" variant="body2" color="textPrimary">
+												kuzmin-pantos@yandex.ru
+											</Typography>
+										</React.Fragment>
+									}
 									primaryTypographyProps={{
 										className: classes.title,
 										variant: 'subtitle1',
 										color: 'textSecondary',
-									}}
-									secondaryTypographyProps={{
-										variant: 'subtitle1',
-										color: 'textPrimary',
 									}}
 								/>
 							</ListItem>
@@ -152,16 +162,18 @@ const Contacts = () => {
 								</ListItemAvatar>
 								<ListItemText
 									className={classes.listItemText}
-									primary="Head Office"
-									secondary="Via E. Golla 4"
+									primary="Наш адрес"
+									secondary={
+										<React.Fragment>
+											<Typography component="p" variant="body2" color="textPrimary">
+												Лапинский пр., 3, Санкт-Петербург, 195253
+											</Typography>
+										</React.Fragment>
+									}
 									primaryTypographyProps={{
 										className: classes.title,
 										variant: 'subtitle1',
 										color: 'textSecondary',
-									}}
-									secondaryTypographyProps={{
-										variant: 'subtitle1',
-										color: 'textPrimary',
 									}}
 								/>
 							</ListItem>
@@ -179,7 +191,7 @@ const Contacts = () => {
 					<div className={clsx('hero-shaped__cover', classes.heroCover)}>
 						<div className={clsx('hero-shaped__image-container', classes.heroImageContainer)}>
 							<div className={clsx('hero-shaped__image', classes.heroImage)}>
-								<Map center={[59.93471, 30.479731]} pins={mapData} className={classes.map} />
+								<Map center={[59.9791869, 30.4455184]} pins={mapData} className={classes.map} />
 							</div>
 						</div>
 					</div>

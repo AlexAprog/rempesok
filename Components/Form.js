@@ -39,13 +39,16 @@ const ValidateSchema = Yup.object().shape(
 	},
 	[['email', 'phone']],
 );
-const Form = ({ setOpen }) => {
+const Form = ({ setOpen, service, mainScreen }) => {
 	const classes = useStyles();
 	const { register, handleSubmit, watch, errors, reset } = useForm({
 		resolver: yupResolver(ValidateSchema),
 	});
 	const onSubmit = async (data) => {
-		const text = `От ${data.name}, контакты: ${data.email} ${data.phone}, сообщение ${data.text}`;
+		let text = `От ${data.name}, контакты: ${data.email} ${data.phone}, сообщение ${data.text}`;
+		if (service) {
+			text += `, вид работы ${service.name}`;
+		}
 		try {
 			await fetch(
 				`https://api.telegram.org/bot${process.env.NEXT_PUBLIC_TELEGRAM_TOKEN}/sendMessage?chat_id=${process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID}=&text=${text}`,
@@ -64,14 +67,16 @@ const Form = ({ setOpen }) => {
 					className={classes.form}
 					borderRadius="15px"
 					width="100%"
-					width={{ lg: '50%' }}
+					width={mainScreen ? { lg: '100%' } : { lg: '35%' }}
 					p={{ xs: 2, sm: 3, md: 4 }}>
 					<Grid container direction="column">
-						<Typography component="h4" align="center">
-							Хотите работать с нами?
+						<Typography component="h1" variant="h5" align="center">
+							{service
+								? `Мы рассчитаем стоимость ${service.forForm} индивидуально под Вас!`
+								: 'Хотите работать с нами'}
 						</Typography>
-						<Typography component="p" align="center">
-							Заполните форму и мы с вами свзяжемся в ближайшее время.
+						<Typography component="p" variant="h5" align="center">
+							Заполните форму и мы с вами свяжемся в ближайшее время.
 						</Typography>
 					</Grid>
 					<Box position="relative" width="100%" marginBottom="0.3rem" marginTop="0.8rem">
@@ -138,11 +143,11 @@ const Form = ({ setOpen }) => {
 							name="text"
 							margin="normal"
 							variant="outlined"
-							label="Сообщение"
+							label={service ? 'Подробное описание работ' : 'Сообщение'}
 							fullWidth
 							multiline={true}
 							rows={4}
-							placeholder="Можете оставить сообщение .."
+							placeholder=""
 							inputRef={register}></TextField>
 						<Button type="submit" fullWidth variant="contained" color="primary">
 							Отправить

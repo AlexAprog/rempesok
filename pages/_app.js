@@ -7,6 +7,9 @@ import theme from '../lib/theme';
 import '../styles/globals.css';
 import 'leaflet/dist/leaflet.css';
 
+import AOS from 'aos';
+
+import 'aos/dist/aos.css';
 export default function MyApp(props) {
 	const { Component, pageProps } = props;
 
@@ -16,6 +19,12 @@ export default function MyApp(props) {
 		if (jssStyles) {
 			jssStyles.parentElement.removeChild(jssStyles);
 		}
+		AOS.init({
+			once: true,
+			delay: 50,
+			duration: 500,
+			easing: 'ease-in-out',
+		});
 	}, []);
 
 	return (

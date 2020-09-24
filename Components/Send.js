@@ -47,7 +47,7 @@ const Send = () => {
 
 	return (
 		<Container maxWidth="md" id="call">
-			<Form setOpen={setOpen} />
+			<Form setOpen={setOpen} mainScreen={true} />
 			<Dialog
 				fullScreen={fullScreen}
 				open={open}

@@ -135,9 +135,11 @@ function Layout({ children }) {
 							<MenuIcon />
 						</IconButton>
 					</Hidden>
-					<Typography variant="h4" className={clsx(classes.title, classes.titleFontFamily)}>
-						Rempesok.ru
-					</Typography>
+					<Link href="#/">
+						<Typography variant="h4" className={clsx(classes.title, classes.titleFontFamily)}>
+							Rempesok.ru
+						</Typography>
+					</Link>
 					<Hidden smDown>
 						<Typography
 							variant="h2"
@@ -162,9 +164,9 @@ function Layout({ children }) {
 						</Typography>
 					</Hidden>
 					<Hidden smDown>
-						<Typography variant="h4">8-981-854-00-54</Typography>
+						<Typography variant="h4">8-911-994-091-23</Typography>
 					</Hidden>
-					<Hidden mdDown>
+					{/* <Hidden mdDown>
 						<Typography variant="h4">
 							<IconButton edge="end" className={classes.menuButton} aria-label="menu">
 								<NextLink href="https://telegram.im/@324234324">
@@ -179,9 +181,11 @@ function Layout({ children }) {
 								<EmailIcon />
 							</IconButton>
 						</Typography>
-					</Hidden>
+					</Hidden> */}
 					<Hidden xsDown>
-						<Button onClick={handleFormOpen}>Оставить заявку</Button>
+						<Button className={classes.menuItem} onClick={handleFormOpen}>
+							Оставить заявку
+						</Button>
 					</Hidden>
 				</Toolbar>
 			</AppBar>
