@@ -9,7 +9,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import Form from './Form';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
 	card: {
@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Service = ({ card }) => {
 	const [openForm, setOpenForm] = React.useState(false);
+	const theme = useTheme();
 
 	const onHandle = () => {
 		setOpenForm(!openForm);
@@ -65,7 +66,7 @@ const Service = ({ card }) => {
 							Закрыть
 						</Button>
 					</DialogActions>
-					<Form service={card} />
+					<Form setOpen={onHandle} service={card} />
 				</DialogContent>
 			</Dialog>
 		</React.Fragment>

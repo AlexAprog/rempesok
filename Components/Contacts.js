@@ -10,6 +10,7 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Map from './Map';
 import { mapData } from '../data';
+import { Link } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
 	hero: {
@@ -109,10 +110,14 @@ const Contacts = () => {
 									secondary={
 										<React.Fragment>
 											<Typography component="p" variant="body2" color="textPrimary">
-												+7 911-994-91-23
+												<Link component="a" href="tel: +79119949123">
+													+7 911-994-91-23
+												</Link>
 											</Typography>
 											<Typography component="p" variant="body2" color="textPrimary">
-												+7 981-895-23-98
+												<Link component="a" href="tel: +79818952398">
+													+7 981-895-23-98
+												</Link>
 											</Typography>
 										</React.Fragment>
 									}

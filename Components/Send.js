@@ -38,8 +38,6 @@ const Send = () => {
 	const classes = useStyles();
 
 	const [open, setOpen] = React.useState(false);
-	const theme = useTheme();
-	const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
 	const handleClose = () => {
 		setOpen(false);
@@ -48,24 +46,6 @@ const Send = () => {
 	return (
 		<Container maxWidth="md" id="call">
 			<Form setOpen={setOpen} mainScreen={true} />
-			<Dialog
-				fullScreen={fullScreen}
-				open={open}
-				onClose={handleClose}
-				aria-labelledby="responsive-dialog-title">
-				<DialogTitle id="responsive-dialog-title">Сообщение отправлено</DialogTitle>
-				<DialogContent>
-					<DialogContentText>
-						Спасибо за проявленный к нам интерес. Мы получили вашу заявку и свяжемя с вами в
-						ближайшее время.
-					</DialogContentText>
-				</DialogContent>
-				<DialogActions>
-					<Button onClick={handleClose} color="primary" autoFocus>
-						Закрыть
-					</Button>
-				</DialogActions>
-			</Dialog>
 		</Container>
 	);
 };

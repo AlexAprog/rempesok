@@ -164,7 +164,9 @@ function Layout({ children }) {
 						</Typography>
 					</Hidden>
 					<Hidden smDown>
-						<Typography variant="h4">8-911-994-091-23</Typography>
+						<Link component="a" href="tel: +79119949123">
+							<Typography variant="h4">8-911-994-091-23</Typography>
+						</Link>
 					</Hidden>
 					{/* <Hidden mdDown>
 						<Typography variant="h4">
