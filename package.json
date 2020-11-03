@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev -p 3040",
+		"dev": "next dev -p 3050",
 		"build": "next build",
 		"start": "next start"
 	},
@@ -15,7 +15,7 @@
 		"aos": "^2.3.4",
 		"clsx": "^1.1.1",
 		"leaflet": "^1.6.0",
-		"next": "9.5.2",
+		"next": "^10.0.0",
 		"next-images": "^1.4.1",
 		"react": "16.13.1",
 		"react-dom": "16.13.1",
